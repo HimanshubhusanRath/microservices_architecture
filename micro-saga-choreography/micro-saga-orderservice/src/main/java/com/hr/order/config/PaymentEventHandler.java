@@ -32,6 +32,7 @@ public class PaymentEventHandler {
 		orderRepository.findById(orderID).ifPresent(order -> {
 			final OrderStatus orderStatus = PaymentStatus.PAYMENT_SUCCESS.equals(event.getPaymentStatus()) ? OrderStatus.ORDER_COMPLETED : OrderStatus.ORDER_CANCELLED;
 			order.setOrderStatus(orderStatus);
+			order.setPaymentStatus(event.getPaymentStatus());
 			orderRepository.save(order);
 		});
 		

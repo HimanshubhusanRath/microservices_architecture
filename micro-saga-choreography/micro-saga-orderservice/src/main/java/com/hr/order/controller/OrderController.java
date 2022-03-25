@@ -1,14 +1,13 @@
 package com.hr.order.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.hr.common.dto.OrderRequestDTO;
 import com.hr.order.entity.PurchaseOrder;
 import com.hr.order.service.OrderService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/order")
@@ -21,5 +20,11 @@ public class OrderController {
 	public PurchaseOrder createOrder(@RequestBody final OrderRequestDTO orderRequestDTO)
 	{
 		return orderService.createOrder(orderRequestDTO);
+	}
+
+	@GetMapping("/all")
+	public List<PurchaseOrder> getAllOrders()
+	{
+		return orderService.getAllOrders();
 	}
 }
