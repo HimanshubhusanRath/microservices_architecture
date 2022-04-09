@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: orderSupplier;paymentEventConsumer # Name of the bean method
+      bindings:
+        orderSupplier-out-0: # function definition bean method name - out - a number. OUT because we are publishing an event to 'order-event' topic
+          destination: order-event
+        paymentEventConsumer-in-0: # IN because we are consuming an event from 'payment-event' topic
+          destination: payment-event
+
+          
+          
+server:
+  port: 8081
