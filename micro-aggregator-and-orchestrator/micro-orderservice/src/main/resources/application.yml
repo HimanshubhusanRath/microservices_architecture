@@ -1,5 +1,17 @@
 spring:
+  application:
+    name: order-service
+    
   cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: localhost
+        register-health-check: false
+        instance-id: ${spring.application.name}:${random.int[1,9999]}
+
+
     stream:
       function:
         definition: orderSupplier;paymentEventConsumer # Name of the bean method

@@ -1,2 +1,16 @@
+spring:
+  application:
+    name: user-service
+    
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: localhost
+        register-health-check: false
+        instance-id: ${spring.application.name}:${random.int[1,9999]}
+
+
 server:
   port: 8083
