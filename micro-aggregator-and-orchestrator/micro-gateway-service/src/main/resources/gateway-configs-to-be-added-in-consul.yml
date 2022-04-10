@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true          
+      routes:
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
+#          filters:
+#            - RewritePath=/order-service/(?.*), /$\{path}
+
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+#          filters:
+#            - RewritePath=/user-service/(?.*), /$\{path}
+
+        - id: userorder-aggregator-service
+          uri: lb://userorder-aggregator-service
+          predicates:
+            - Path=/userorder-agg/**
+#          filters:
+#            - RewritePath=/userorder-agg/(?.*), /$\{path}
+
+
+        - id: userorder-orchestrator-service
+          uri: lb://userorder-orchestrator-service
+          predicates:
+            - Path=/userorder-orc/**
+#          filters:
+#            - RewritePath=/userorder-orc/(?.*), /$\{path}
+

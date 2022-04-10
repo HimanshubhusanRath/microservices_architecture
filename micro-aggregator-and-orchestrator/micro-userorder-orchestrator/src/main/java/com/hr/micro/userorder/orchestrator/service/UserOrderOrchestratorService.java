@@ -22,11 +22,11 @@ public class UserOrderOrchestratorService {
 	public UserOrderDetailsDTO getUserOrderDetails(final String userId)
 	{
 		// 1. Get the user details from user service
-		String url = "http://localhost:8083/users/"+userId;
+		String url = "http://user-service/users/"+userId;
 		final UserDTO user = template.getForObject(url, UserDTO.class);
 		
 		// 2. Get the order details from order service
-		url = "http://localhost:8081/order/user/"+userId;
+		url = "http://order-service/order/user/"+userId;
 		final ResponseEntity<List<OrderDTO>> orderResponse = template.exchange(url, HttpMethod.GET,null,new ParameterizedTypeReference<List<OrderDTO>>() {});
 		final List<OrderDTO> orders = orderResponse.getBody();
 		

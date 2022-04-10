@@ -10,7 +10,7 @@ import com.hr.micro.userorder.orchestrator.dto.UserOrderDetailsDTO;
 import com.hr.micro.userorder.orchestrator.service.UserOrderOrchestratorService;
 
 @RestController
-@RequestMapping("/userorder-orc/")
+@RequestMapping("/userorder-orc")
 public class UserOrderOrchestratorController {
 
 	@Autowired
