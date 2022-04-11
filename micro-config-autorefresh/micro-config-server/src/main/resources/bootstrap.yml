@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: micro-config-server
+
+  cloud:
+    # SERVICE REGISTRY FOR DISCOVERY
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: localhost
+        register-health-check: false
+        instance-id: ${spring.application.name}:${random.int[1,9999]}
+  
+    # CONFIG SERVER
+    config:
+      server:
+#        override-system-properties : false
+        git:
+          uri: https://github.com/HimanshubhusanRath/micro-configurations
+          clone-on-start: true
+          search-paths: micro-config-server/src/main/resources/config/ # Searching the configs in local
+          username: HimanshubhusanRath # Git username
+          password: TaniSonu@141
+    bus:
+      enabled: true # Enable the spring cloud bus for event propagation
+    
+    kafka:
+      bootstrap-servers: http://localhost:9092  # Kafka server address
+              
+
+# Expose all endpoints for management
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 8092

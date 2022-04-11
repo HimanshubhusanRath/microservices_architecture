@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: micro-config-client
+
+  cloud:
+    # SERVICE REGISTRY FOR DISCOVERY
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: localhost
+        register-health-check: false
+        instance-id: ${spring.application.name}:${random.int[1,9999]}
+  
+    # CONFIG SERVER
+    config:
+      uri: http://localhost:8092
+      fail-fast: true  # Ensures the configurations are fetched from the config server. If unavailable, start up will fail
+      retry:
+        max-attempts: 5
+        max-interval : 15000
+        initial-interval : 10000
+
+    bus:
+      refresh:
+        enabled: true
+      env:
+        enabled: true  
+    
+    kafka:
+      bootstrap-servers: http://localhost:9092  # Kafka server address
+              
+
+# Expose all endpoints for management
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+server:
+  port: 8093
+  
+  
+#holiday-days-in-week: MON,TUE
