@@ -14,13 +14,19 @@ spring:
   
     # CONFIG SERVER
     config:
-      uri: http://localhost:8092
       fail-fast: true  # Ensures the configurations are fetched from the config server. If unavailable, start up will fail
       retry:
         max-attempts: 5
         max-interval : 15000
         initial-interval : 10000
+      # CONFIG-FIRST approach where client service connects to the config server on startup. Direct URL is used here.
+      uri: http://localhost:8092
 
+      # DISCOVERY-FIRST approach where client service looks up the config server from the discovery server and then connects to the config server.
+      #discovery:
+      #  enabled: true
+      #  service-id: micro-config-server
+        
     bus:
       refresh:
         enabled: true
