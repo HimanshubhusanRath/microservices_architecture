@@ -2,10 +2,7 @@
 
 1. Each microservice is identified by one key (name it SERVICE-KEY).
 2. Now, different authorizing groups and the corresponding service accesses are defined by mapping between auth-key and these service keys.
-   e.g. Student service key = CS-1
-        Course service key = CR-1
-   One authorizing group is defined as AUTH-1 which has access to both Student service and Course service. So, AUTH-1 : {CS-1, CR-1}
-   Whereas another authorizing group is defined as AUTH-2 having access only to Course service. So, AUTH-2 : {CR-1}
+   e.g. Student service key = CS-1 and Course service key = CR-1. One authorizing group is defined as AUTH-1 which has access to both Student service and Course service. So, _AUTH-1 : {CS-1, CR-1}_ whereas another authorizing group is defined as AUTH-2 having access only to Course service. So, _AUTH-2 : {CR-1}_
 
 **Request Authentication during despatch:**
 1. When a client requests for a service api, it need to send this AUTH key in the header. e.g. AUTH-1.
