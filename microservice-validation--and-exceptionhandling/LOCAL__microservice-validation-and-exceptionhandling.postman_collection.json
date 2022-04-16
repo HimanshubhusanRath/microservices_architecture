@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "6f4f7fa2-c9ac-44f7-b84c-c31a8ad17f2a",
+		"name": "LOCAL__microservice-validation-and-exceptionhandling",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Student",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "ASDSA909ASD-ASD5T5G5G5G5-F4L6J3K45H3V43",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "gateway-key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Himanshu\",\n\t\"email\" : \"hi@mmmmmm@\",\n\t\"gender\" : \"male\",\n\t\"age\" : 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/students/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"students",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Students",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "ASDSA909ASD-ASD5T5G5G5G5-F4L6J3K45H3V43",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "gateway-key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Himanshu\",\n\t\"email\" : \"hi@mmmmmm@\",\n\t\"gender\" : \"male\",\n\t\"age\" : 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/student/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"student",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "ASDSA909ASD-ASD5T5G5G5G5-F4L6J3K45H3V43",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "gateway-key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Himanshu\",\n\t\"email\" : \"hi@mmmmmm@\",\n\t\"gender\" : \"male\",\n\t\"age\" : 33\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/student/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"student",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
