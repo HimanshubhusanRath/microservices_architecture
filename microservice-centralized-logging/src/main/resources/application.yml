@@ -1,0 +1,7 @@
+logging:
+  file:
+    path: /Users/himanshubhusanrath/Desktop/log
+    
+    
+server:
+  port: 8093
