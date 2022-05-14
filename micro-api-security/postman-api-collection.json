@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "e463f193-045b-4747-a671-c097851b91e0",
+		"name": "LOCAL__microservice-apikey-based-security",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all students",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "ASDSA909ASD-ASD5T5G5G5G5-F4L6J3K45H3V43",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "gateway-key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/student-service/student/get-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"student-service",
+						"student",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
