@@ -1,0 +1,74 @@
+server:
+  port: 8080
+  
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client:
+            provider: spring
+            client-id: loginclient
+            client-secret: secret
+            #authorization-grant-type: authorization_code, refresh_token
+            #client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid
+            
+          client-a:
+            provider: spring
+            client-id: client-a
+            client-secret: secret
+            #authorization-grant-type: authorization_code
+            #client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/path-a"
+            scope: authority-a
+
+          client-ab:
+            provider: spring
+            client-id: client-ab
+            client-secret: secret
+            #authorization-grant-type: authorization_code
+            #client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/path-ab"
+            scope: authority-a,authority-b 
+
+          client-abc:
+            provider: spring
+            client-id: client-abc
+            client-secret: secret
+            #authorization-grant-type: authorization_code
+            #client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/path-abc"
+            scope: authority-a,authority-b,authority-c 
+
+          clientcredentials-c:
+            provider: spring
+            client-id: clientcredentials-c
+            client-secret: secret
+            authorization-grant-type: client_credentials
+            scope: authority-c
+            
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000 
+          
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO    
+            
+            
+# Custom configuration for services
+app:
+  configs:
+    services:
+      service-a:
+        url: http://server-a:8081/service-a
+      service-b:
+        url: http://server-b:8082/service-b
+      service-c:
+        url: http://server-c:8083/service-c
+      

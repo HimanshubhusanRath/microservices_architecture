@@ -1,0 +1,48 @@
+
+server:
+  port: 8082
+  
+  
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          client-c-exchange:
+            provider: spring
+            client-id: client-c
+            client-secret: secret
+            authorization-grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
+            scope: authority-c
+            
+          client-c:
+            provider: spring
+            client-id: client-c
+            client-secret: secret
+            authorization-grant-type: client_credentials
+            scope: authority-c
+      
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000
+      
+      
+      resourceserver:
+        jwt:
+          issuer-uri: http://auth-server:9000            
+      
+            
+# Custom configuration for services
+app:
+  configs:
+    services:
+      service-c:
+        url: http://server-c:8083/service-c
+      
+      
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
