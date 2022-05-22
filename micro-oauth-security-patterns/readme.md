@@ -32,7 +32,8 @@ Here, the client is authenticated and authorized by using the credentials (clien
 
 **COMPONENT COMMUNICATIONS:**
 
-![Project-flow](https://user-images.githubusercontent.com/40859584/169706629-1e24db7e-1261-442e-9e61-9e157235f479.png)
+![Project-flow](https://user-images.githubusercontent.com/40859584/169707229-5704f904-f677-405e-8bd9-f2a533cbfe8a.png)
+
 
 1. Authentication is carried out by the client ['loginclient'] available in Client-application.
 2. Client-Application ==> Service-A
