@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client:
+            provider: spring
+            client-id: loginclient
+            client-secret: secret
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid
+            
+          client-a:
+            provider: spring
+            client-id: client-a
+            client-secret: secret
+            redirect-uri: "{baseUrl}/path-a"
+            scope: authority-a
+
+          client-ab:
+            provider: spring
+            client-id: client-ab
+            client-secret: secret
+            redirect-uri: "{baseUrl}/path-ab"
+            scope: authority-a,authority-b 
+
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000 
+          
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO    
+            
+            
+# Custom configuration for services (localhost:8090 is the gateway service url)
+app:
+  configs:
+    services:
+      service-a:
+        url: http://localhost:8090/serv-a
+      service-b:
+        url: http://localhost:8090/serv-b
+      

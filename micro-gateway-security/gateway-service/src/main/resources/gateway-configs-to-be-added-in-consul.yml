@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true          
+      routes:
+        - id: service-a
+          uri: lb://service-a
+          predicates:
+            - Path=/serv-a/**
+#          filters:
+#            - RewritePath=/order-service/(?.*), /$\{path}
+
+        - id: service-b
+          uri: lb://service-b
+          predicates:
+            - Path=/serv-b/**
+#          filters:
+#            - RewritePath=/user-service/(?.*), /$\{path}

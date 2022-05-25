@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hr</groupId>
+	<artifactId>micro-oauth-security-patterns</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>micro-oauth-security-patterns</name>
+	<description>micro-oauth-security-patterns</description>
+
+	<modules>
+		<module>common-dto</module>
+		<module>auth-server</module>
+		<module>gateway-service</module>
+		<module>client-app</module>
+		<module>resource-server-A</module>
+		<module>resource-server-B</module>
+	</modules>
+
+</project>
