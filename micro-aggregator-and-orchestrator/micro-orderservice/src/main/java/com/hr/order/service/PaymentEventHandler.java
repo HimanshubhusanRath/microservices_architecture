@@ -1,4 +1,4 @@
-package com.hr.order.config;
+package com.hr.order.service;
 
 import javax.transaction.Transactional;
 

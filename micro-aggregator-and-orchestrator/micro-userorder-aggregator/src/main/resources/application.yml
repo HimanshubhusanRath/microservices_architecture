@@ -14,9 +14,9 @@ spring:
   
     stream:
       function:
-        definition: consumOrderCompleteEvent # Name of the bean method
+        definition: consumeOrderPlacedEvent # Name of the bean method
       bindings:
-        consumOrderCompleteEvent-in-0: 
+        consumeOrderPlacedEvent-in-0: 
           destination: order-event
 
           

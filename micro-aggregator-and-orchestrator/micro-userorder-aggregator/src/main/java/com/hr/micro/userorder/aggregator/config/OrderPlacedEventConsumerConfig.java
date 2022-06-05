@@ -13,13 +13,13 @@ import com.hr.micro.userorder.aggregator.repository.UserOrderRepository;
 
 
 @Configuration
-public class OrderCompletedEventConsumerConfig {
+public class OrderPlacedEventConsumerConfig {
 
 	@Autowired
 	private UserOrderRepository userOrderRepo;
 	
 	@Bean
-	public Consumer<OrderEvent> consumOrderCompleteEvent()
+	public Consumer<OrderEvent> consumeOrderPlacedEvent()
 	{
 		return (event) -> {
 			System.out.println("Order Event in USER-ORDER module !!");
