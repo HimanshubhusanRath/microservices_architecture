@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.hr.common.event.PaymentEvent;
+import com.hr.order.service.PaymentEventHandler;
 
 @Configuration
 public class PaymentEventConsumerConfig {
