@@ -5,4 +5,5 @@
 
 **Design:**
 
-![Project-Arch-Diagram drawio](https://user-images.githubusercontent.com/40859584/162586924-1a29fcaf-0b8d-4cf8-8f17-99dc11b3bf5f.png)
+![Project-Architecture-Diagram drawio](https://user-images.githubusercontent.com/40859584/180609438-33187785-3095-43f2-9d4b-4980a8af10a8.png)
+
