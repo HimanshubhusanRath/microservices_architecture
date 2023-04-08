@@ -53,6 +53,9 @@ Here, the client is authenticated and authorized by using the credentials (clien
       4. Using this client, service-B accesses service-C. For this access, user authorization does not come into picture as we are using client credentials.
 
 
+# Overview of the authentication & authorization flow 
+
+![Authorization-DetailedFlow](https://user-images.githubusercontent.com/40859584/230719547-6a3d599b-3418-4a13-9090-178d2d9918ce.png)
 
 
 
