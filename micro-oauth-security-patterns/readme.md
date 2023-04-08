@@ -57,5 +57,19 @@ Here, the client is authenticated and authorized by using the credentials (clien
 
 ![Authorization-DetailedFlow](https://user-images.githubusercontent.com/40859584/230719547-6a3d599b-3418-4a13-9090-178d2d9918ce.png)
 
+## Note
+- In the CLIENT-APP, only one client 'login_client' is used for AUTHENTICATION with scope as openid. 
+  Other clients are used for AUTHORIZATION with different scopes e.g. authority-a / authority-b etc.
+
+- If we don't use 'login_client', then also login will happen (default log-in). 
+
+  AUTHENTICATION is not specific to an individual client rather it is specific to the CLIENT-APP (containing all clients).
+  So, LOG IN happens only once (by 'login_client') per the CLIENT-APP (once done, it is applicable for all clients)
+
+
+### How the auth-server & client-app remember the authentication ?
+  - When login is successful, a JSESSIONID cookie is set by the auth-server
+  - When the authorizedClient is created in the client-app as part of 'login/oauth2/code/*' call, a JESSIONID cookie is set by the client-app
+  - These cookies are used to identify the request as authenticated.
 
 
