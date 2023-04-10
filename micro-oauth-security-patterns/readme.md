@@ -30,6 +30,7 @@ Here, the client is authenticated and authorized by using the credentials (clien
 4. Service-C is accessible for any authenticated request having a scope as 'authority-c'
 5. Authentication-Server is responsible for providing authentication and authorization.
 
+
 **COMPONENT COMMUNICATIONS:**
 
 ![Project-flow](https://user-images.githubusercontent.com/40859584/169707229-5704f904-f677-405e-8bd9-f2a533cbfe8a.png)
@@ -38,21 +39,43 @@ Here, the client is authenticated and authorized by using the credentials (clien
 1. Authentication is carried out by the client ['loginclient'] available in Client-application.
 2. Client-Application ==> Service-A
     - Using client [client-a], grant-type = authorization_code, scope=authority-a
-3. Client-Application ==> Service-B
-    - Using client [client-b], grant-type = authorization_code, scope=authority-b
+        * Test URL : http://localhost:8080/path-a
+3. Client-Application ==> Service-C
+    - Using client [client-c], grant-type = authorization_code, scope=authority-c
+        * Test URL : http://localhost:8080/path-c
 4. Client-Application ==> Service-A & Service-B
     - Using client [client-ab], grant-type = authorization_code, scope=authority-a, authority-b
+        * Test URL : http://localhost:8080/path-ab
 5. Client-Application ==> Service-A, Service-B, Service-C (Service-C is not directly accessed rather it is accessed from Service-B)
     - **Flow-token-relay**
       1. Using the below client[client-abc], grant-type=authorization_code, scope=authority-a, authority-b, authority-c
       2. Here the client is having access to all the services (A,B & C). So, the token is simply passed on to the subsequent service calls.
+        * Test URL : http://localhost:8080/path-abc?flow_type=token_relay
     - **Flow-client-credentials**
       1. Using client[client-ab], grant-type=authorization_code, scope=authority-a, authority-b.
       2. Here the client is having access only to service-A and service-B. 
       3. From service-B, we use a different client [client-c], grant-type=client_credentials, scope=authority-c
       4. Using this client, service-B accesses service-C. For this access, user authorization does not come into picture as we are using client credentials.
+        * Test URL : http://localhost:8080/path-abc?flow_type=client_credentials
 
 
+# Overview of the authentication & authorization flow 
 
+![Authorization-DetailedFlow](https://user-images.githubusercontent.com/40859584/230719547-6a3d599b-3418-4a13-9090-178d2d9918ce.png)
+
+## Note
+- In the CLIENT-APP, only one client 'login_client' is used for AUTHENTICATION with scope as openid. 
+  Other clients are used for AUTHORIZATION with different scopes e.g. authority-a / authority-b etc.
+
+- If we don't use 'login_client', then also login will happen (default log-in). 
+
+  AUTHENTICATION is not specific to an individual client rather it is specific to the CLIENT-APP (containing all clients).
+  So, LOG IN happens only once (by 'login_client') per the CLIENT-APP (once done, it is applicable for all clients)
+
+
+### How the auth-server & client-app remember the authentication ?
+  - When login is successful, a JSESSIONID cookie is set by the auth-server
+  - When the authorizedClient is created in the client-app as part of 'login/oauth2/code/*' call, a JESSIONID cookie is set by the client-app
+  - These cookies are used to identify the request as authenticated.
 
 
