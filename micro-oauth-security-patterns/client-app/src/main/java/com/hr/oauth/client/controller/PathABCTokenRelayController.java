@@ -23,7 +23,7 @@ import com.hr.oauth.client.config.ServicesConfiguration;
 public class PathABCTokenRelayController extends BaseController{
 
 	private static final String FLOW_TYPE_PARAMETER = "flow_type";
-	private static final String FLOW_TYPE_TOKEN_EXCHANGE = "token_relay";
+	private static final String FLOW_TYPE_TOKEN_RELAY = "token_relay";
 	
 	
 	protected PathABCTokenRelayController(WebClient webClient, ServicesConfiguration servicesConfig) {
@@ -38,7 +38,7 @@ public class PathABCTokenRelayController extends BaseController{
 		ServiceResponse responseA = callService(ServicesConfiguration.SERVICE_A, authClient);
 		
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
-		params.put(FLOW_TYPE_PARAMETER, Collections.singletonList(FLOW_TYPE_TOKEN_EXCHANGE));
+		params.put(FLOW_TYPE_PARAMETER, Collections.singletonList(FLOW_TYPE_TOKEN_RELAY));
 		
 		ServiceResponse responseB = callService(ServicesConfiguration.SERVICE_B, authClient,params);
 		return Arrays.asList(responseA, responseB);
