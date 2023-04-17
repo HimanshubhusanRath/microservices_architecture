@@ -1,5 +1,9 @@
-**Oauth2 Grant Types (covered in this project)**
+# In this project, the below mechanisms are used
 
+#### 1. Open ID Connect (OIDC) for AUTHENTICATION
+#### 2. OAuth2 for AUTHORIZATION
+
+### Oauth2 Grant Types (covered in this project) 
 **1. authorization_code:** 
 Here, the client asks the user (resource owner) to authorize the access to certain resources. The user is shown the login page where he enters his credentials for login. 
 Once authenticated, he is asked to authorize the client to access the intended resource. Once the user authorizes, the client gets the authorization-code from the auth-server. 
@@ -66,8 +70,6 @@ Here, the client is authenticated and authorized by using the credentials (clien
 ## Note
 - In the CLIENT-APP, only one client 'login_client' is used for AUTHENTICATION with scope as openid. 
   Other clients are used for AUTHORIZATION with different scopes e.g. authority-a / authority-b etc.
-
-- If we don't use 'login_client', then also login will happen (default log-in). 
 
   AUTHENTICATION is not specific to an individual client rather it is specific to the CLIENT-APP (containing all clients).
   So, LOG IN happens only once (by 'login_client') per the CLIENT-APP (once done, it is applicable for all clients)
