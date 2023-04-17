@@ -1,4 +1,4 @@
-# In this project, the below mechanisms are used
+## In this project, the below security mechanisms are used
 
 #### 1. Open ID Connect (OIDC) for AUTHENTICATION
 #### 2. OAuth2 for AUTHORIZATION
