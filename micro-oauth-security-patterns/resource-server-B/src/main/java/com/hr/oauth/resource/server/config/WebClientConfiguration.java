@@ -38,7 +38,7 @@ public class WebClientConfiguration {
 		clientManager.setContextAttributesMapper(contextAttributesMapper());
 		return clientManager;
 	}
-	
+
 	private Function<OAuth2AuthorizeRequest, Map<String, Object>> contextAttributesMapper() {
 		return authorizedRequest -> 
 		{
@@ -58,7 +58,7 @@ public class WebClientConfiguration {
 		// We can use UnAuthenticatedServerOAuth2AuthorizedClientRepository if this no user flow comes in to picture (purely server-server communication)
 		ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client =
 				new ServletOAuth2AuthorizedClientExchangeFilterFunction(authorizedClientManager);
-		oauth2Client.setDefaultClientRegistrationId("client-c-exchange");
+		//oauth2Client.setDefaultClientRegistrationId("client-c-exchange");
 		return WebClient.builder()
 				.apply(oauth2Client.oauth2Configuration())
 				.build();

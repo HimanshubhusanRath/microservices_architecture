@@ -73,7 +73,8 @@ public class AuthorizationServerConfig {
 				.scope(OidcScopes.OPENID)
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()) // To show consent screen to the user
 				.build();
-		
+
+		// Configure both AUTHORIZATION_CODE as well as REFRESH_TOKEN so that the tokens would be refreshed automatically by the Client App's WebClient.
 		final RegisteredClient clientA = RegisteredClient.withId(UUID.randomUUID().toString())
 				.clientId("client-a")
 				.clientSecret(passwordEncoder.encode("secret"))
@@ -85,7 +86,7 @@ public class AuthorizationServerConfig {
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()) // To show consent screen to the user
 				.build();
 		
-		
+		// Configure both AUTHORIZATION_CODE as well as REFRESH_TOKEN so that the tokens would be refreshed automatically by the Client App's WebClient.
 		final RegisteredClient clientAB = RegisteredClient.withId(UUID.randomUUID().toString())
 				.clientId("client-ab")
 				.clientSecret(passwordEncoder.encode("secret"))
@@ -97,7 +98,8 @@ public class AuthorizationServerConfig {
 				.scope("authority-b")
 				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()) // To show consent screen to the user
 				.build();
-		
+
+		// Configure both AUTHORIZATION_CODE as well as REFRESH_TOKEN so that the tokens would be refreshed automatically by the Client App's WebClient.
 		final RegisteredClient clientABC = RegisteredClient.withId(UUID.randomUUID().toString())
 				.clientId("client-abc")
 				.clientSecret(passwordEncoder.encode("secret"))
