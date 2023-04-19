@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client-1:
+            provider: spring
+            client-id: loginclient-1
+            client-secret: secret
+            #authorization-grant-type: authorization_code, refresh_token
+            #client-authentication-method: client_secret_basic
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid
+            
+
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000 
+          
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+        web:
+          client:
+            RestTemplate: TRACE
