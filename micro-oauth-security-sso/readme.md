@@ -68,7 +68,7 @@ Now onwards, when user tries to access each of these clients, the respective cli
 - o.s.s.w.a.i.FilterSecurityInterceptor    : Failed to authorize filter invocation [GET /path-ab] with attributes [authenticated] using AffirmativeBased [DecisionVoters=[org.springframework.security.web.access.expression.WebExpressionVoter@1dd11ddf], AllowIfAllAbstainDecisions=false]
 - o.s.s.w.a.ExceptionTranslationFilter     : Sending AnonymousAuthenticationToken [Principal=anonymousUser, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=127.0.0.1, SessionId=null], Granted Authorities=[ROLE_ANONYMOUS]] to authentication entry point since access is denied
 
-### 2. Access is denied for Anonymous Authentication Token (created by default) as we have configured login flow and the user needs to be authenticated
+### 2. Access is denied with Anonymous Authentication Token (created by default) as we have configured login flow and the user needs to be authenticated
 - org.springframework.security.access.AccessDeniedException: Access is denied
 
 ### 3. oAuth2 Flow kicks in and the client redirects to the auth-server for authentication for AUTHORIZATION_CODE grant
@@ -97,7 +97,6 @@ Now onwards, when user tries to access each of these clients, the respective cli
 - o.s.web.client.RestTemplate              : Reading to [org.springframework.security.oauth2.core.endpoint.OAuth2AccessTokenResponse] as "application/json;charset=UTF-8"
 
 ### 6. Client connects to the auth-server to get the JWS algorithm for token validation
-----------------------------------------------------------------------------------
 
 - o.s.web.client.RestTemplate              : HTTP GET http://auth-server:9000/oauth2/jwks
 - o.s.web.client.RestTemplate              : Accept=[text/plain, application/json, application/*+json, */*]
