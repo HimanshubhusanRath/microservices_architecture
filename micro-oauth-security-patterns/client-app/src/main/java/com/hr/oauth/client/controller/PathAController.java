@@ -1,8 +1,10 @@
 package com.hr.oauth.client.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,10 +24,11 @@ public class PathAController extends BaseController{
 
 	@GetMapping
 	@ResponseBody
-	public ServiceResponse getUsers(@RegisteredOAuth2AuthorizedClient("client-a") OAuth2AuthorizedClient authClient, OAuth2AuthenticationToken oauthAuthentication)
+	public ServiceResponse getUsers(@AuthenticationPrincipal final OidcUser authenticatedUser, @RegisteredOAuth2AuthorizedClient("client-a") OAuth2AuthorizedClient authClient, OAuth2AuthenticationToken oauthAuthentication)
 	{
-		System.out.println("ACCESS TOKEN >>> "+authClient.getAccessToken().getTokenValue());
-		ServiceResponse response = callService(ServicesConfiguration.SERVICE_A, authClient); 
+		System.out.println("PATH-A Controller --> ID TOKEN >>> "+authenticatedUser.getIdToken().getTokenValue());
+		System.out.println("PATH-A Controller --> ACCESS TOKEN >>> "+authClient.getAccessToken().getTokenValue());
+		ServiceResponse response = callService(ServicesConfiguration.SERVICE_A, authClient);
 		return response;
 	}
 

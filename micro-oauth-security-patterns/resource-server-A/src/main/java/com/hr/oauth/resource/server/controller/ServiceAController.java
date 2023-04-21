@@ -22,6 +22,7 @@ public class ServiceAController {
 	public ServiceResponse serviceResponse(final JwtAuthenticationToken jwtAuthToken, HttpServletRequest httpRequest)
 	{
 		System.out.println("-- Service-A Controller --");
+		System.out.println("Access Token >> "+jwtAuthToken.getToken().getTokenValue());
 		ServiceResponse response = new ServiceResponse();
 		response.setServiceName("service-a");
 		response.setServiceUri(httpRequest.getRequestURL().toString());

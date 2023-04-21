@@ -22,6 +22,7 @@ public class ServiceCController {
 	public ServiceResponse serviceResponse(final JwtAuthenticationToken jwtAuthToken, HttpServletRequest httpRequest)
 	{
 		System.out.println("********* Service C is called *************");
+		System.out.println("Access Token ====> "+jwtAuthToken.getToken().getTokenValue());
 		ServiceResponse response = new ServiceResponse();
 		response.setServiceName("service-c");
 		response.setServiceUri(httpRequest.getRequestURL().toString());
