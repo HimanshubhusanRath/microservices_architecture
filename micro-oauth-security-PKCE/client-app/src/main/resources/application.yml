@@ -9,7 +9,7 @@ spring:
           login-client-2:
             provider: spring
             client-id: loginclient-2
-            authorization-grant-type: authorization_code
+            authorization-grant-type: authorization_code, refresh_token
             client-authentication-method: none
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: openid
