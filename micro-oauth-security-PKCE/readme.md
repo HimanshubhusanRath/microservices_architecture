@@ -10,6 +10,7 @@
   * Set the authentication_method as 'none'
   * Set the authorization grant type as 'authorization_code'
   * Client secret need not be mentioned
+  * Set 'requireProofKey' as true in client settings
 
 
 
@@ -19,6 +20,7 @@
   * Client secret need not be mentioned
   * authorization-grant-type: authorization_code
 
+Configure the request resolver with PKCE for authorization end point in HttpSecurity filter chain.
 
 ### Local Setup
 
