@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.OAuth2AccessToken;
+import org.springframework.security.oauth2.core.OAuth2RefreshToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,9 +29,25 @@ public class PathABController extends BaseController{
 	@ResponseBody
 	public List<ServiceResponse> getUsers(@RegisteredOAuth2AuthorizedClient("client-ab") OAuth2AuthorizedClient authClient, OAuth2AuthenticationToken oauthAuthentication)
 	{
+		printAccessTokenDetails(authClient.getAccessToken());
+		printRefreshTokenDetails(authClient.getRefreshToken());
 		ServiceResponse responseA = callService(ServicesConfiguration.SERVICE_A, authClient);
 		ServiceResponse responseB = callService(ServicesConfiguration.SERVICE_B, authClient);
 		return Arrays.asList(responseA, responseB);
+	}
+
+	private void printAccessTokenDetails(final OAuth2AccessToken accessToken)
+	{
+		System.out.println("--- ACCESS TOKEN ---");
+		System.out.println(accessToken.getTokenValue());
+		System.out.println("Expires at : "+accessToken.getExpiresAt());
+	}
+
+	private void printRefreshTokenDetails(final OAuth2RefreshToken accessToken)
+	{
+		System.out.println("--- REFRESH TOKEN ---");
+		System.out.println(accessToken.getTokenValue());
+		System.out.println("Expires at : "+accessToken.getExpiresAt());
 	}
 
 }

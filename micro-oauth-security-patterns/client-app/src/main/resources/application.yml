@@ -56,9 +56,13 @@ spring:
 
 logging:
   level:
+    root: INFO
     org:
       springframework:
-        security: INFO    
+        web:
+          security: TRACE
+          client:
+            RestTemplate: TRACE
             
             
 # Custom configuration for services

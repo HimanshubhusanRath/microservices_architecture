@@ -24,7 +24,7 @@ public class PathAController extends BaseController{
 
 	@GetMapping
 	@ResponseBody
-	public ServiceResponse getUsers(@AuthenticationPrincipal final OidcUser authenticatedUser, @RegisteredOAuth2AuthorizedClient("client-a") OAuth2AuthorizedClient authClient, OAuth2AuthenticationToken oauthAuthentication)
+	public ServiceResponse getUsers(@AuthenticationPrincipal final OidcUser authenticatedUser, @RegisteredOAuth2AuthorizedClient("client-a") OAuth2AuthorizedClient authClient)
 	{
 		System.out.println("PATH-A Controller --> ID TOKEN >>> "+authenticatedUser.getIdToken().getTokenValue());
 		System.out.println("PATH-A Controller --> ACCESS TOKEN >>> "+authClient.getAccessToken().getTokenValue());

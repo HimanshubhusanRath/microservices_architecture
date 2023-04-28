@@ -20,6 +20,7 @@ logging:
     root: INFO
     org:
       springframework:
-        web: INFO
-        security: INFO
-        security.oauth2: INFO
+        web:
+          security: TRACE
+          client:
+            RestTemplate: TRACE
