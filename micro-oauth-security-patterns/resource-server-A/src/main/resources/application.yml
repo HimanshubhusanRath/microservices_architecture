@@ -8,4 +8,17 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://auth-server:9000
+
+
+
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web:
+          security: TRACE
+          client:
+            RestTemplate: TRACE
           
