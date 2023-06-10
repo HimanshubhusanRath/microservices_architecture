@@ -15,7 +15,7 @@
 ### Create the test data in the database
 * Run the application once so that Hibernate will generate the tables in the database.
 * Execute the below SQLs to create entries in the tables. 
-------
+<code>
 INSERT INTO authorities(authority) VALUES('ROLE_USER');
 INSERT INTO authorities(authority) VALUES('ROLE_ADMIN');
 INSERT INTO authorities(authority) VALUES('ROLE_DEVELOPER');
@@ -25,15 +25,16 @@ INSERT INTO users(username, password, account_non_expired, account_non_locked, c
 VALUES ('Admin', '$2a$04$Ef7nckypldOGgWiCBcw91.UY8uNquwk2b5FnH/KfrZtTsKNxq7oJO', true, true, true, true);
 INSERT INTO users(username, password, account_non_expired, account_non_locked, credentials_non_expired, enabled)
 VALUES ('User', '$2a$04$Ef7nckypldOGgWiCBcw91.UY8uNquwk2b5FnH/KfrZtTsKNxq7oJO', true, true, true, true);
-
+</code>
+<code>
 INSERT INTO users_authorities(users_id, authorities_id) VALUES (1, 1);
 INSERT INTO users_authorities(users_id, authorities_id) VALUES (1, 2);
 INSERT INTO users_authorities(users_id, authorities_id) VALUES (1, 3);
 INSERT INTO users_authorities(users_id, authorities_id) VALUES (2, 1);
 INSERT INTO users_authorities(users_id, authorities_id) VALUES (2, 2);
 INSERT INTO users_authorities(users_id, authorities_id) VALUES (3, 1); 
------
-
+</code>
+<code>
 INSERT INTO client(id, authorization_grant_types, client_authentication_methods, client_id, client_id_issued_at, client_name,
 client_secret, client_secret_expires_at, client_settings, redirect_uris, scopes, token_settings)
 VALUES('client-a', 'refresh_token,client_credentials,authorization_code', 'client_secret_basic',
@@ -46,7 +47,7 @@ VALUES('client-a', 'refresh_token,client_credentials,authorization_code', 'clien
 "settings.token.access-token-format":{"@class":"org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat",
 "value":"self-contained"},"settings.token.refresh-token-time-to-live":["java.time.Duration",3600.000000000],
 "settings.token.authorization-code-time-to-live":["java.time.Duration",300.000000000]}');
-------
+</code>
 
 
 * Use the below credentials to get tokens using a POSTMAN client as mentioned in the below diagram.
@@ -59,4 +60,5 @@ VALUES('client-a', 'refresh_token,client_credentials,authorization_code', 'clien
   * If scope is mentioned as 'profile' --> Only two tokens (access, refresh token) are returned in the response.
   * ID token is only returned in the response, if scope is OPENID
 
-* ![Screen Shot 2023-05-09 at 6.51.44 AM.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreen%20Shot%202023-05-09%20at%206.51.44%20AM.png)
+<img width="622" alt="Screen Shot 2023-05-09 at 6 51 44 AM" src="https://user-images.githubusercontent.com/40859584/236971215-1047b825-ea91-4a87-81bd-cbd391355f40.png">
+
