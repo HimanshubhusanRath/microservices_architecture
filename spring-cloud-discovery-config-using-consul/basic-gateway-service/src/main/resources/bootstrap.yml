@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: gateway-service
+    
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: localhost
+        register-health-check: false
+        #instance-id: ${spring.application.name}:${random.int[1,9999]}
+      config:
+        format: YAML
+
+    # Disable Ribbon
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+server:
+  port: 8091
