@@ -14,12 +14,12 @@ spring:
   
     stream:
       function:
-        definition: consumeOrderPlacedEvent # Name of the bean method
+        definition: orderEventConsumer # Name of the bean method
       bindings:
-        consumeOrderPlacedEvent-in-0: 
+        orderEventConsumer-in-0:
           destination: order-event
 
           
           
 server:
-  port: 8084
+  port: 0

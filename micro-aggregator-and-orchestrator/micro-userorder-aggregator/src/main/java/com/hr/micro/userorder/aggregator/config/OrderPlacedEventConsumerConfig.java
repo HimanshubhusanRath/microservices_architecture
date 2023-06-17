@@ -19,7 +19,7 @@ public class OrderPlacedEventConsumerConfig {
 	private UserOrderRepository userOrderRepo;
 	
 	@Bean
-	public Consumer<OrderEvent> consumeOrderPlacedEvent()
+	public Consumer<OrderEvent> orderEventConsumer()
 	{
 		return (event) -> {
 			System.out.println("Order Event in USER-ORDER module !!");
