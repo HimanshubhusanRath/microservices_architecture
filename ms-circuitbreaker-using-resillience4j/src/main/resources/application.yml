@@ -1,0 +1,30 @@
+spring:
+  application.name: resilience4j-demo
+
+server:
+  port: 8082
+
+management:
+  endpoints.web.exposure.include:
+    - '*'
+  endpoint.health.show-details: always
+  health.circuitbreakers.enabled: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      myActivity: # Circuit breaker name
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+
+  retry:
+    instances:
+      retryMethod:
+        maxAttempts: 5
+        waitDuration: 5s
+
