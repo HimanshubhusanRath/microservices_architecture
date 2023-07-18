@@ -15,7 +15,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Configuration
-public class PaymentConsumerConfig {
+public class PaymentProcessorConfig {
 
 	@Autowired
 	private PaymentService paymentService;
