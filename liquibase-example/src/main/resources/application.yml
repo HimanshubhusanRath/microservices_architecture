@@ -1,0 +1,30 @@
+# DataSource settings: set here your own configurations for the database connection
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/liquibase_demo
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # Hibernate properties
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+  # Liquibase related configurations
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
+
+#
+#    # Specify the hibernate dialect
+#    database-platform: org.hibernate.dialect.MySQLDialect
+
+
+
+
+
+server:
+  port: 8086
