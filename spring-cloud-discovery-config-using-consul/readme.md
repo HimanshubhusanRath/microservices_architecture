@@ -32,7 +32,9 @@
     * uri: lb://caller-service 
     * predicates:
     *   - Path=/caller/**
-* This means if the request URL matches with (/caller/**), then redirect this to (http://caller-service) 
+* This means if the request URL matches with (/caller/**), then redirect this to (http://caller-service)
+* **A note on dynamic configuration update in Consul:**
+    * When configurations are updated in Consul at the runtime, Consul takes care of notifying/refreshing the gateway-service (Consul config client) and hence no manual refresh is needed at the gateway-service.
 
 ## Test the application:
 * Use 'http://localhost:8091/caller' to access the caller service endpoint.
