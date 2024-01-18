@@ -34,6 +34,8 @@
     *   - Path=/caller/**
 * This means if the request URL matches with (/caller/**), then redirect this to (http://caller-service) 
 
+## Test the application:
+* Use 'http://localhost:8091/caller' to access the caller service endpoint.
 
 
 
