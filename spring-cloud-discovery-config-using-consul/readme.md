@@ -12,7 +12,7 @@
 ### How to use Consul
 * Installation:
 * Run: 
-  * ./consul agent -dev -node <machine-name>
+  * ./consul agent -dev -node [node-name]
 * View members of consul:
   * ./consul members
 * To add configurations for 'gateway-service', do the following:
