@@ -82,7 +82,7 @@ Here, the client is authenticated and authorized by using the credentials (clien
 
 
 ### How Single Sign On works 
-  - Authentication is performed once using Open ID connect with the authnentication provider (auth-server). Here the end user needs to log in using his credentials.
+  - Authentication is performed once using Open ID connect with the authentication provider (auth-server). Here the end user needs to log in using his credentials.
   - Lets say there are 3 clients (client-app-1, client-app-2, client-app-3) who has registered as clients with the <b>same authentication-server</b> (auth-server) using [scope=openid + grant-type=authorization_code].
   - If the end user authenticates himself by using any of these clients, then he does not need to authenticate again for other clients.
   

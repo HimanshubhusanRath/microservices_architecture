@@ -32,8 +32,7 @@ public class PathABCTokenRelayController extends BaseController{
 
 	@GetMapping
 	@ResponseBody
-	public List<ServiceResponse> getUsers(@RegisteredOAuth2AuthorizedClient("client-abc") OAuth2AuthorizedClient authClient, 
-			OAuth2AuthenticationToken oauthAuthentication)
+	public List<ServiceResponse> getUsers(@RegisteredOAuth2AuthorizedClient("client-abc") OAuth2AuthorizedClient authClient)
 	{
 		ServiceResponse responseA = callService(ServicesConfiguration.SERVICE_A, authClient);
 		

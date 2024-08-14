@@ -133,7 +133,6 @@ public class AuthorizationServerConfig {
 				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
 				.authorizationGrantType(AuthorizationGrantType.JWT_BEARER)
 				.scope("authority-c")
-				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()) // Consent is not required as this client will be called server-server
 				.build();
 		
 		return new InMemoryRegisteredClientRepository(loginClient,clientA, clientAB, clientABC, clientC,clientcredentialsC);
