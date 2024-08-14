@@ -65,7 +65,8 @@ Here, the client is authenticated and authorized by using the credentials (clien
 
 # Overview of the authentication & authorization flow 
 
-![Authorization-DetailedFlow](https://user-images.githubusercontent.com/40859584/230719547-6a3d599b-3418-4a13-9090-178d2d9918ce.png)
+![Authorization-DetailedFlow](https://github.com/user-attachments/assets/2d7b5a0d-df2a-45cd-a516-d7f800efb13a)
+
 
 ## Note
 - In the CLIENT-APP, only one client 'login_client' is used for AUTHENTICATION with scope as openid. 
