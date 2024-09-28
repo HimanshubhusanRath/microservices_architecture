@@ -1,6 +1,6 @@
 # Custom Annotation:
 * http://localhost:8080/custom-annotation/a --> Returns 'Slave:2.0- Data' as this is annotated by @UseSlave
-* http://localhost:8080/custom-annotation/b --> Returns 'null- Data' as this is not annotated
+* http://localhost:8080/custom-annotation/b --> Returns 'null-Data' as this is not annotated
 
 # Event Handling:
 * http://localhost:8080/event-handling/winner/teamA:
@@ -25,3 +25,7 @@
 * http://localhost:8080/actuator/custom-metrics:
   * This is a REST endpoint which uses the Micrometer library to get the real time health checks for the current server. 
   * In this example, we are getting the request count and average response time for the current server.
+# Redis Integration in Spring Boot:
+  * Using Lettuce redis-client
+  
+
