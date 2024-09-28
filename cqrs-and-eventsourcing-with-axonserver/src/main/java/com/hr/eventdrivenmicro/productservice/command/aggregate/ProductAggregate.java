@@ -1,5 +1,6 @@
 package com.hr.eventdrivenmicro.productservice.command.aggregate;
 
+import lombok.Data;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
@@ -19,6 +20,7 @@ import lombok.experimental.SuperBuilder;
 @Aggregate
 @SuperBuilder
 @NoArgsConstructor
+@Data
 public class ProductAggregate extends ProductModel{
 
 	@AggregateIdentifier
