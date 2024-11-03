@@ -1,7 +1,9 @@
 logging:
   file:
     path: /Users/himanshubhusanrath/Desktop/log
-    
-    
+  pattern:
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%X{traceId},%X{spanId}] %-5level %logger{36} - %msg%n"
+    file: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%X{traceId},%X{spanId}] %-5level %logger{36} - %msg%n"
+
 server:
   port: 8093

@@ -3,23 +3,23 @@ package com.hr.springboot.examples.demo.customactuator;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-@RestController
-@RequestMapping("/actuator/custom-metrics")
+@Component
+@Endpoint(id = "custom-metrics", enableByDefault = true)
 public class CustomMetricsActuator {
 
     @Autowired
     private MeterRegistry meterRegistry;
 
-    @GetMapping
+    @ReadOperation
     public ResponseEntity<Map<String, Object>> getLoadBalancerMetrics() {
         Map<String, Object> metrics = new HashMap<>();
 
